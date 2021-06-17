@@ -19,15 +19,19 @@ public class UserSecurityServiceImpl implements UserSecurityService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * provide user details
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUserName(username);
-
         if (Objects.isNull(user)) {
             LOGGER.warn("Username {} not found", username);
             throw new UsernameNotFoundException("Username " + username + " not found");
         }
-
         return user;
     }
 }
