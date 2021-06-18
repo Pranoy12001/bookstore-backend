@@ -10,7 +10,7 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 12345L;
 
     @Id
-    private int roleId;
+    private Long roleId;
     private String name;
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
@@ -18,11 +18,11 @@ public class Role implements Serializable {
     public Role() {
     }
 
-    public int getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 

@@ -12,13 +12,14 @@ public class UserRole implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userRoleID;
+    private long userRoleId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_role_id")
     private Role role;
 
     public UserRole() {
@@ -45,11 +46,11 @@ public class UserRole implements Serializable {
         this.role = role;
     }
 
-    public long getUserRoleID() {
-        return userRoleID;
+    public long getUserRoleId() {
+        return userRoleId;
     }
 
-    public void setUserRoleID(long userRoleID) {
-        this.userRoleID = userRoleID;
+    public void setUserRoleId(long userRoleId) {
+        this.userRoleId = userRoleId;
     }
 }
