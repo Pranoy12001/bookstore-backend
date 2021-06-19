@@ -3,6 +3,7 @@ package com.pranoy.bookstore.config;
 import com.pranoy.bookstore.config.utility.SecurityUtility;
 import com.pranoy.bookstore.service.UserSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -40,7 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+        auth
+                .userDetailsService(userSecurityService)
+                .passwordEncoder(passwordEncoder());
     }
 
 }
